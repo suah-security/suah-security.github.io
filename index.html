@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cloud & AI Security Lab</title>
+
+  <style>
+    :root {
+      --bg: #f8fbff;
+      --surface: #ffffff;
+      --primary: #2563eb;
+      --primary-dark: #1e3a8a;
+      --primary-light: #dbeafe;
+      --accent: #38bdf8;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --shadow: rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 800;
+      color: var(--primary-dark);
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .hero {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 96px 24px 72px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: var(--primary-light);
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 72px);
+      line-height: 1.05;
+      letter-spacing: -0.05em;
+      margin: 0 0 24px;
+      color: var(--text);
+    }
+
+    .hero p {
+      max-width: 720px;
+      font-size: 19px;
+      color: var(--muted);
+      margin-bottom: 36px;
+    }
+
+    .hero strong {
+      color: var(--primary-dark);
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      padding: 13px 20px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 12px 24px rgba(37, 99, 235, 0.22);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--primary);
+      border: 1px solid var(--border);
+    }
+
+    section {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 56px 24px;
+    }
+
+    .section-title {
+      font-size: 30px;
+      letter-spacing: -0.04em;
+      margin-bottom: 12px;
+    }
+
+    .section-desc {
+      color: var(--muted);
+      margin-bottom: 28px;
+      max-width: 720px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 26px;
+      box-shadow: 0 16px 40px var(--shadow);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      transition: 0.2s ease;
+      box-shadow: 0 22px 48px rgba(37, 99, 235, 0.12);
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: var(--primary-light);
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 20px;
+      letter-spacing: -0.03em;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 18px;
+    }
+
+    .card a {
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .focus {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .chip {
+      padding: 10px 14px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--primary-dark);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .roadmap {
+      background: linear-gradient(135deg, #eff6ff, #ffffff);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 32px;
+    }
+
+    .roadmap ul {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 36px 24px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 860px) {
+      .nav {
+        align-items: flex-start;
+        gap: 12px;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 72px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="nav">
+      <a class="logo" href="#">Cloud & AI Security Lab</a>
+      <div class="nav-links">
+        <a href="#labs">Labs</a>
+        <a href="#projects">Projects</a>
+        <a href="#research">Research</a>
+        <a href="#playbooks">Playbooks</a>
+        <a href="#resume">Resume</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <span class="badge">Cloud Security × AI Security</span>
+      <h1>Design. Build.<br />Secure.</h1>
+      <p>
+        A hands-on engineering lab documenting cloud, Kubernetes, and AI security
+        experiments for <strong>financial and enterprise environments</strong>.
+      </p>
+
+      <div class="buttons">
+        <a class="btn-primary" href="#labs">View Labs</a>
+        <a class="btn-secondary" href="#projects">View Projects</a>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Focus Areas</h2>
+      <p class="section-desc">
+        This lab focuses on practical security architecture, implementation,
+        validation, and lessons learned across cloud-native and AI systems.
+      </p>
+
+      <div class="focus">
+        <span class="chip">Azure Security</span>
+        <span class="chip">AWS Security</span>
+        <span class="chip">GCP Security</span>
+        <span class="chip">Kubernetes Security</span>
+        <span class="chip">Terraform</span>
+        <span class="chip">AI Runtime Security</span>
+        <span class="chip">MCP Security</span>
+        <span class="chip">Detection Engineering</span>
+      </div>
+    </section>
+
+    <section id="labs">
+      <h2 class="section-title">Featured Labs</h2>
+      <p class="section-desc">
+        Lab records are written as reproducible security experiments, not as
+        company-specific work notes.
+      </p>
+
+      <div class="grid">
+        <article class="card">
+          <span class="tag">LAB-001</span>
+          <h3>Financial Cloud Security Blueprint</h3>
+          <p>
+            A secure cloud architecture blueprint for financial enterprise
+            environments, covering IAM, network, logging, encryption, and monitoring.
+          </p>
+          <a href="#">Coming soon →</a>
+        </article>
+
+        <article class="card">
+          <span class="tag">LAB-002</span>
+          <h3>Multi-Cloud IAM Governance</h3>
+          <p>
+            A practical comparison of IAM governance patterns across AWS, Azure,
+            and GCP with least privilege and auditability in mind.
+          </p>
+          <a href="#">Coming soon →</a>
+        </article>
+
+        <article class="card">
+          <span class="tag">LAB-003</span>
+          <h3>Kubernetes Security Platform</h3>
+          <p>
+            Building Kubernetes security controls with RBAC, NetworkPolicy,
+            admission control, image scanning, and runtime detection.
+          </p>
+          <a href="#">Coming soon →</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2 class="section-title">Projects</h2>
+      <p class="section-desc">
+        Representative projects designed for enterprise and financial security
+        scenarios.
+      </p>
+
+      <div class="grid">
+        <article class="card">
+          <span class="tag">PROJECT</span>
+          <h3>Secure Landing Zone with Terraform</h3>
+          <p>
+            Infrastructure-as-Code based landing zone design with security
+            baseline validation and remediation notes.
+          </p>
+          <a href="#">Coming soon →</a>
+        </article>
+
+        <article class="card">
+          <span class="tag">PROJECT</span>
+          <h3>AI Agent Runtime Security</h3>
+          <p>
+            Runtime security framework for AI agents including prompt injection,
+            PII detection, secret detection, tool abuse, and logging.
+          </p>
+          <a href="#">Coming soon →</a>
+        </article>
+
+        <article class="card">
+          <span class="tag">PROJECT</span>
+          <h3>Cloud Security Assessment</h3>
+          <p>
+            Security assessment and remediation report format for cloud
+            misconfigurations and risk prioritization.
+          </p>
+          <a href="#">Coming soon →</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="research">
+      <h2 class="section-title">Research</h2>
+      <div class="roadmap">
+        <p>
+          Current research topics are focused on cloud security baselines,
+          AI agent security, MCP security, secure RAG, and runtime detection.
+        </p>
+        <ul>
+          <li>OWASP LLM Top 10</li>
+          <li>NIST AI RMF</li>
+          <li>MITRE ATT&CK Cloud</li>
+          <li>CIS Benchmark</li>
+          <li>Financial Cloud Security Architecture</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="playbooks">
+      <h2 class="section-title">Playbooks</h2>
+      <p class="section-desc">
+        Practical checklists and review guides for enterprise security operations.
+      </p>
+
+      <div class="grid">
+        <article class="card">
+          <span class="tag">PLAYBOOK</span>
+          <h3>AWS IAM Review Checklist</h3>
+          <p>Checklist for reviewing IAM users, roles, policies, MFA, and audit trails.</p>
+          <a href="#">Coming soon →</a>
+        </article>
+
+        <article class="card">
+          <span class="tag">PLAYBOOK</span>
+          <h3>Azure Logging Checklist</h3>
+          <p>Checklist for diagnostic settings, Log Analytics, activity logs, and alerting.</p>
+          <a href="#">Coming soon →</a>
+        </article>
+
+        <article class="card">
+          <span class="tag">PLAYBOOK</span>
+          <h3>AI Security Review Checklist</h3>
+          <p>Checklist for prompt injection, data exposure, tool abuse, and audit logging.</p>
+          <a href="#">Coming soon →</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="resume">
+      <h2 class="section-title">About This Lab</h2>
+      <p class="section-desc">
+        This site is a personal engineering lab built to document practical
+        security learning, architecture design, technical validation, and lessons
+        learned. Sensitive company or customer information is not included.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Cloud & AI Security Lab. Built by Suah.
+  </footer>
+</body>
+</html>
