@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,16 +12,13 @@
       --primary: #2563eb;
       --primary-dark: #1e3a8a;
       --primary-light: #dbeafe;
-      --accent: #38bdf8;
       --text: #0f172a;
       --muted: #64748b;
       --border: #e2e8f0;
       --shadow: rgba(15, 23, 42, 0.08);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -31,10 +28,7 @@
       line-height: 1.6;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
 
     header {
       position: sticky;
@@ -57,18 +51,26 @@
     .logo {
       font-weight: 800;
       color: var(--primary-dark);
-      letter-spacing: -0.02em;
     }
 
     .nav-links {
       display: flex;
-      gap: 22px;
+      gap: 18px;
+      align-items: center;
       font-size: 14px;
       color: var(--muted);
     }
 
-    .nav-links a:hover {
+    .nav-links a:hover { color: var(--primary); }
+
+    .lang-btn {
+      border: 1px solid var(--border);
+      background: white;
       color: var(--primary);
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-weight: 800;
+      cursor: pointer;
     }
 
     .hero {
@@ -93,7 +95,6 @@
       line-height: 1.05;
       letter-spacing: -0.05em;
       margin: 0 0 24px;
-      color: var(--text);
     }
 
     .hero p {
@@ -101,10 +102,6 @@
       font-size: 19px;
       color: var(--muted);
       margin-bottom: 36px;
-    }
-
-    .hero strong {
-      color: var(--primary-dark);
     }
 
     .buttons {
@@ -149,6 +146,22 @@
       color: var(--muted);
       margin-bottom: 28px;
       max-width: 720px;
+    }
+
+    .focus {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .chip {
+      padding: 10px 14px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--primary-dark);
+      font-weight: 700;
+      font-size: 14px;
     }
 
     .grid {
@@ -200,30 +213,14 @@
       font-size: 14px;
     }
 
-    .focus {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .chip {
-      padding: 10px 14px;
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      color: var(--primary-dark);
-      font-weight: 700;
-      font-size: 14px;
-    }
-
-    .roadmap {
+    .panel {
       background: linear-gradient(135deg, #eff6ff, #ffffff);
       border: 1px solid var(--border);
       border-radius: 24px;
       padding: 32px;
     }
 
-    .roadmap ul {
+    .panel ul {
       margin: 0;
       padding-left: 20px;
       color: var(--muted);
@@ -265,36 +262,45 @@
   <header>
     <nav class="nav">
       <a class="logo" href="#">Cloud & AI Security Lab</a>
+
       <div class="nav-links">
-        <a href="#labs">Labs</a>
-        <a href="#projects">Projects</a>
-        <a href="#research">Research</a>
-        <a href="#playbooks">Playbooks</a>
-        <a href="#resume">Resume</a>
+        <a href="#projects" data-en="Projects" data-ko="프로젝트">Projects</a>
+        <a href="#research" data-en="Research" data-ko="리서치">Research</a>
+        <a href="#notes" data-en="Notes" data-ko="노트">Notes</a>
+        <a href="#playbooks" data-en="Playbooks" data-ko="플레이북">Playbooks</a>
+        <a href="#about" data-en="About" data-ko="소개">About</a>
+        <button class="lang-btn" onclick="toggleLanguage()">KO / EN</button>
       </div>
     </nav>
   </header>
 
   <main>
     <section class="hero">
-      <span class="badge">Cloud Security × AI Security</span>
-      <h1>Design. Build.<br />Secure.</h1>
-      <p>
-        A hands-on engineering lab documenting cloud, Kubernetes, and AI security
-        experiments for <strong>financial and enterprise environments</strong>.
+      <span class="badge" data-en="Cloud Security × AI Security" data-ko="클라우드 보안 × AI 보안">
+        Cloud Security × AI Security
+      </span>
+
+      <h1 data-en="Design. Build. Secure." data-ko="설계하고. 구축하고. 보호합니다.">
+        Design. Build. Secure.
+      </h1>
+
+      <p data-en="A hands-on engineering lab documenting cloud, Kubernetes, and AI security experiments."
+         data-ko="클라우드, 쿠버네티스, AI 보안 실험과 구현 과정을 기록하는 실무형 엔지니어링 랩입니다.">
+        A hands-on engineering lab documenting cloud, Kubernetes, and AI security experiments.
       </p>
 
       <div class="buttons">
-        <a class="btn-primary" href="#labs">View Labs</a>
-        <a class="btn-secondary" href="#projects">View Projects</a>
+        <a class="btn-primary" href="#projects" data-en="View Projects" data-ko="프로젝트 보기">View Projects</a>
+        <a class="btn-secondary" href="#research" data-en="View Research" data-ko="리서치 보기">View Research</a>
       </div>
     </section>
 
     <section>
-      <h2 class="section-title">Focus Areas</h2>
-      <p class="section-desc">
-        This lab focuses on practical security architecture, implementation,
-        validation, and lessons learned across cloud-native and AI systems.
+      <h2 class="section-title" data-en="Focus Areas" data-ko="주요 분야">Focus Areas</h2>
+      <p class="section-desc"
+         data-en="This lab focuses on practical security architecture, implementation, validation, and lessons learned across cloud-native and AI systems."
+         data-ko="이 랩은 클라우드 네이티브 및 AI 시스템의 보안 아키텍처, 구현, 검증, 그리고 실습 과정에서 얻은 교훈을 중심으로 정리합니다.">
+        This lab focuses on practical security architecture, implementation, validation, and lessons learned across cloud-native and AI systems.
       </p>
 
       <div class="focus">
@@ -309,145 +315,192 @@
       </div>
     </section>
 
-    <section id="labs">
-      <h2 class="section-title">Featured Labs</h2>
-      <p class="section-desc">
-        Lab records are written as reproducible security experiments, not as
-        company-specific work notes.
-      </p>
-
-      <div class="grid">
-        <article class="card">
-          <span class="tag">LAB-001</span>
-          <h3>Financial Cloud Security Blueprint</h3>
-          <p>
-            A secure cloud architecture blueprint for financial enterprise
-            environments, covering IAM, network, logging, encryption, and monitoring.
-          </p>
-          <a href="#">Coming soon →</a>
-        </article>
-
-        <article class="card">
-          <span class="tag">LAB-002</span>
-          <h3>Multi-Cloud IAM Governance</h3>
-          <p>
-            A practical comparison of IAM governance patterns across AWS, Azure,
-            and GCP with least privilege and auditability in mind.
-          </p>
-          <a href="#">Coming soon →</a>
-        </article>
-
-        <article class="card">
-          <span class="tag">LAB-003</span>
-          <h3>Kubernetes Security Platform</h3>
-          <p>
-            Building Kubernetes security controls with RBAC, NetworkPolicy,
-            admission control, image scanning, and runtime detection.
-          </p>
-          <a href="#">Coming soon →</a>
-        </article>
-      </div>
-    </section>
-
     <section id="projects">
-      <h2 class="section-title">Projects</h2>
-      <p class="section-desc">
-        Representative projects designed for enterprise and financial security
-        scenarios.
+      <h2 class="section-title" data-en="Projects" data-ko="프로젝트">Projects</h2>
+      <p class="section-desc"
+         data-en="Hands-on projects focused on designing, building, testing, and documenting practical security controls."
+         data-ko="보안 통제를 설계하고, 구현하고, 테스트하고, 문서화하는 실습 중심 프로젝트입니다.">
+        Hands-on projects focused on designing, building, testing, and documenting practical security controls.
       </p>
 
       <div class="grid">
         <article class="card">
-          <span class="tag">PROJECT</span>
-          <h3>Secure Landing Zone with Terraform</h3>
-          <p>
-            Infrastructure-as-Code based landing zone design with security
-            baseline validation and remediation notes.
+          <span class="tag">PROJECT 01</span>
+          <h3 data-en="Cloud Security Baseline" data-ko="Cloud Security Baseline">
+            Cloud Security Baseline
+          </h3>
+          <p data-en="A project for organizing cloud security controls across IAM, logging, encryption, network, and monitoring."
+             data-ko="IAM, 로깅, 암호화, 네트워크, 모니터링을 중심으로 클라우드 보안 통제 항목을 정리하는 프로젝트입니다.">
+            A project for organizing cloud security controls across IAM, logging, encryption, network, and monitoring.
           </p>
-          <a href="#">Coming soon →</a>
+          <a href="#" data-en="Coming soon →" data-ko="준비 중 →">Coming soon →</a>
         </article>
 
         <article class="card">
-          <span class="tag">PROJECT</span>
-          <h3>AI Agent Runtime Security</h3>
-          <p>
-            Runtime security framework for AI agents including prompt injection,
-            PII detection, secret detection, tool abuse, and logging.
+          <span class="tag">PROJECT 02</span>
+          <h3 data-en="Secure Landing Zone" data-ko="Secure Landing Zone">
+            Secure Landing Zone
+          </h3>
+          <p data-en="A project for designing a secure landing zone structure using network segmentation, private access, identity, and logging."
+             data-ko="네트워크 분리, 프라이빗 접근, ID, 로깅을 중심으로 안전한 Landing Zone 구조를 설계하는 프로젝트입니다.">
+            A project for designing a secure landing zone structure using network segmentation, private access, identity, and logging.
           </p>
-          <a href="#">Coming soon →</a>
+          <a href="#" data-en="Coming soon →" data-ko="준비 중 →">Coming soon →</a>
         </article>
 
         <article class="card">
-          <span class="tag">PROJECT</span>
-          <h3>Cloud Security Assessment</h3>
-          <p>
-            Security assessment and remediation report format for cloud
-            misconfigurations and risk prioritization.
+          <span class="tag">PROJECT 03</span>
+          <h3 data-en="Kubernetes Security Platform" data-ko="Kubernetes Security Platform">
+            Kubernetes Security Platform
+          </h3>
+          <p data-en="A project for building Kubernetes security controls with RBAC, NetworkPolicy, admission control, image scanning, and runtime detection."
+             data-ko="RBAC, NetworkPolicy, Admission Control, 이미지 스캔, 런타임 탐지를 활용해 쿠버네티스 보안 통제 구조를 구성하는 프로젝트입니다.">
+            A project for building Kubernetes security controls with RBAC, NetworkPolicy, admission control, image scanning, and runtime detection.
           </p>
-          <a href="#">Coming soon →</a>
+          <a href="#" data-en="Coming soon →" data-ko="준비 중 →">Coming soon →</a>
+        </article>
+
+        <article class="card">
+          <span class="tag">PROJECT 04</span>
+          <h3 data-en="Cloud Security Assessment" data-ko="Cloud Security Assessment">
+            Cloud Security Assessment
+          </h3>
+          <p data-en="A project for reviewing cloud configurations, identifying risks, and documenting remediation steps."
+             data-ko="클라우드 설정을 점검하고, 리스크를 식별하고, 개선 방안을 문서화하는 프로젝트입니다.">
+            A project for reviewing cloud configurations, identifying risks, and documenting remediation steps.
+          </p>
+          <a href="#" data-en="Coming soon →" data-ko="준비 중 →">Coming soon →</a>
+        </article>
+
+        <article class="card">
+          <span class="tag">PROJECT 05</span>
+          <h3 data-en="AI Runtime Security" data-ko="AI Runtime Security">
+            AI Runtime Security
+          </h3>
+          <p data-en="A project for testing AI application security controls such as prompt injection detection, data exposure prevention, and runtime logging."
+             data-ko="Prompt Injection 탐지, 데이터 노출 방지, 런타임 로깅 등 AI 애플리케이션 보안 통제를 테스트하는 프로젝트입니다.">
+            A project for testing AI application security controls such as prompt injection detection, data exposure prevention, and runtime logging.
+          </p>
+          <a href="#" data-en="Coming soon →" data-ko="준비 중 →">Coming soon →</a>
+        </article>
+
+        <article class="card">
+          <span class="tag">PROJECT 06</span>
+          <h3 data-en="Multi-Cloud IAM Governance" data-ko="Multi-Cloud IAM Governance">
+            Multi-Cloud IAM Governance
+          </h3>
+          <p data-en="A project for comparing IAM patterns across AWS, Azure, and GCP with a focus on least privilege and auditability."
+             data-ko="AWS, Azure, GCP의 IAM 패턴을 최소 권한과 감사 가능성 관점에서 비교하는 프로젝트입니다.">
+            A project for comparing IAM patterns across AWS, Azure, and GCP with a focus on least privilege and auditability.
+          </p>
+          <a href="#" data-en="Coming soon →" data-ko="준비 중 →">Coming soon →</a>
         </article>
       </div>
     </section>
 
     <section id="research">
-      <h2 class="section-title">Research</h2>
-      <div class="roadmap">
-        <p>
-          Current research topics are focused on cloud security baselines,
-          AI agent security, MCP security, secure RAG, and runtime detection.
+      <h2 class="section-title" data-en="Research" data-ko="리서치">Research</h2>
+      <div class="panel">
+        <p data-en="Research topics are organized around cloud security baselines, AI agent security, MCP security, secure RAG, and runtime detection."
+           data-ko="리서치 주제는 클라우드 보안 기준선, AI Agent 보안, MCP 보안, Secure RAG, 런타임 탐지를 중심으로 정리합니다.">
+          Research topics are organized around cloud security baselines, AI agent security, MCP security, secure RAG, and runtime detection.
         </p>
         <ul>
           <li>OWASP LLM Top 10</li>
           <li>NIST AI RMF</li>
           <li>MITRE ATT&CK Cloud</li>
           <li>CIS Benchmark</li>
-          <li>Financial Cloud Security Architecture</li>
+          <li>Secure RAG</li>
         </ul>
       </div>
     </section>
 
+    <section id="notes">
+      <h2 class="section-title" data-en="Notes" data-ko="노트">Notes</h2>
+      <p class="section-desc"
+         data-en="Short technical notes for commands, troubleshooting, architecture decisions, and lessons learned."
+         data-ko="명령어, 트러블슈팅, 아키텍처 판단, 실습 과정에서 얻은 교훈을 짧게 정리하는 공간입니다.">
+        Short technical notes for commands, troubleshooting, architecture decisions, and lessons learned.
+      </p>
+
+      <div class="focus">
+        <span class="chip">Azure</span>
+        <span class="chip">AWS</span>
+        <span class="chip">GCP</span>
+        <span class="chip">Kubernetes</span>
+        <span class="chip">Terraform</span>
+        <span class="chip">Security Tools</span>
+        <span class="chip">Troubleshooting</span>
+      </div>
+    </section>
+
     <section id="playbooks">
-      <h2 class="section-title">Playbooks</h2>
-      <p class="section-desc">
-        Practical checklists and review guides for enterprise security operations.
+      <h2 class="section-title" data-en="Playbooks" data-ko="플레이북">Playbooks</h2>
+      <p class="section-desc"
+         data-en="Practical checklists and review guides for security implementation and validation."
+         data-ko="보안 구현과 검증을 위한 실무형 체크리스트와 리뷰 가이드입니다.">
+        Practical checklists and review guides for security implementation and validation.
       </p>
 
       <div class="grid">
         <article class="card">
           <span class="tag">PLAYBOOK</span>
-          <h3>AWS IAM Review Checklist</h3>
-          <p>Checklist for reviewing IAM users, roles, policies, MFA, and audit trails.</p>
-          <a href="#">Coming soon →</a>
+          <h3 data-en="AWS IAM Review Checklist" data-ko="AWS IAM Review Checklist">AWS IAM Review Checklist</h3>
+          <p data-en="Checklist for reviewing IAM users, roles, policies, MFA, and audit trails."
+             data-ko="IAM 사용자, 역할, 정책, MFA, 감사 로그를 점검하기 위한 체크리스트입니다.">
+            Checklist for reviewing IAM users, roles, policies, MFA, and audit trails.
+          </p>
+          <a href="#" data-en="Coming soon →" data-ko="준비 중 →">Coming soon →</a>
         </article>
 
         <article class="card">
           <span class="tag">PLAYBOOK</span>
-          <h3>Azure Logging Checklist</h3>
-          <p>Checklist for diagnostic settings, Log Analytics, activity logs, and alerting.</p>
-          <a href="#">Coming soon →</a>
+          <h3 data-en="Azure Logging Checklist" data-ko="Azure Logging Checklist">Azure Logging Checklist</h3>
+          <p data-en="Checklist for diagnostic settings, Log Analytics, activity logs, and alerting."
+             data-ko="Diagnostic Settings, Log Analytics, Activity Log, Alerting 구성을 점검하기 위한 체크리스트입니다.">
+            Checklist for diagnostic settings, Log Analytics, activity logs, and alerting.
+          </p>
+          <a href="#" data-en="Coming soon →" data-ko="준비 중 →">Coming soon →</a>
         </article>
 
         <article class="card">
           <span class="tag">PLAYBOOK</span>
-          <h3>AI Security Review Checklist</h3>
-          <p>Checklist for prompt injection, data exposure, tool abuse, and audit logging.</p>
-          <a href="#">Coming soon →</a>
+          <h3 data-en="AI Security Review Checklist" data-ko="AI Security Review Checklist">AI Security Review Checklist</h3>
+          <p data-en="Checklist for prompt injection, data exposure, tool abuse, and audit logging."
+             data-ko="Prompt Injection, 데이터 노출, Tool Abuse, 감사 로깅을 점검하기 위한 체크리스트입니다.">
+            Checklist for prompt injection, data exposure, tool abuse, and audit logging.
+          </p>
+          <a href="#" data-en="Coming soon →" data-ko="준비 중 →">Coming soon →</a>
         </article>
       </div>
     </section>
 
-    <section id="resume">
-      <h2 class="section-title">About This Lab</h2>
-      <p class="section-desc">
-        This site is a personal engineering lab built to document practical
-        security learning, architecture design, technical validation, and lessons
-        learned. Sensitive company or customer information is not included.
+    <section id="about">
+      <h2 class="section-title" data-en="About This Lab" data-ko="이 랩에 대해">About This Lab</h2>
+      <p class="section-desc"
+         data-en="This site documents practical security learning, architecture design, technical validation, and lessons learned. Sensitive company or customer information is not included."
+         data-ko="이 사이트는 보안 학습, 아키텍처 설계, 기술 검증, 실습 과정에서 얻은 교훈을 기록하기 위한 개인 엔지니어링 랩입니다. 회사 또는 고객사의 민감한 정보는 포함하지 않습니다.">
+        This site documents practical security learning, architecture design, technical validation, and lessons learned. Sensitive company or customer information is not included.
       </p>
     </section>
   </main>
 
-  <footer>
+  <footer data-en="© 2026 Cloud & AI Security Lab. Built by Suah."
+          data-ko="© 2026 Cloud & AI Security Lab. Built by Suah.">
     © 2026 Cloud & AI Security Lab. Built by Suah.
   </footer>
+
+  <script>
+    let currentLang = "en";
+
+    function toggleLanguage() {
+      currentLang = currentLang === "en" ? "ko" : "en";
+      document.documentElement.lang = currentLang;
+
+      document.querySelectorAll("[data-en]").forEach((el) => {
+        el.textContent = el.dataset[currentLang];
+      });
+    }
+  </script>
 </body>
 </html>
