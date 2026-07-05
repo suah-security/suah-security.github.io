@@ -1,62 +1,101 @@
 # ☁️ Cloud & AI Security Lab
 
-> Learn by Building. Validate by Testing. Share by Documenting.
+> **Learn by Building. Validate by Testing. Document the Process.**
 
-A personal engineering lab for documenting hands-on security projects, research notes, architecture studies, and lessons learned across cloud-native and AI systems.
+A personal engineering lab focused on **Cloud Security**, **AI Security**, and **Kubernetes Security**.
 
----
-
-## Overview
-
-Cloud & AI Security Lab is a personal technical space focused on practical security engineering.
-
-This lab is built around four principles:
-
-- Design secure architectures
-- Build reproducible environments
-- Validate security controls
-- Document lessons learned
-
-The goal is to grow this repository as a long-term technical archive, not a short-term portfolio.
+Rather than serving as a traditional portfolio, this repository documents practical learning through hands-on projects, technical research, troubleshooting notes, and reusable security playbooks.
 
 ---
 
 ## Focus Areas
 
-| Area | Topics |
-|---|---|
-| Cloud Security | IAM, Network, Logging, Encryption, Monitoring |
-| Kubernetes Security | RBAC, NetworkPolicy, Admission Control, Runtime Detection |
-| Infrastructure as Code | Terraform, Policy-as-Code, Security Scanning |
-| AI Security | AI Runtime Security, Prompt Injection, Data Exposure, MCP Security |
-| Detection Engineering | Logs, Alerts, Detection Rules, Investigation Notes |
+- ☁️ Cloud Security
+- ☸️ Kubernetes Security
+- 🤖 AI Security
 
 ---
 
-## Lab Structure
+## Current Projects
+
+- Project 01 · Cloud Security Baseline
+- Project 02 · Kubernetes Security Platform
+- Project 03 · AI Runtime Security
+
+---
+
+## Current Research
+
+- OWASP LLM Top 10
+- MITRE ATT&CK Cloud
+- CIS Benchmark
+- Secure RAG
+- MCP Security
+
+---
+
+## Current Tech Notes
+
+- Azure Managed Identity
+- AWS IAM
+- GCP IAM
+- Kubernetes Admission Controller
+- Terraform Security
+- AI Runtime Logging
+
+---
+
+## Repository Structure
 
 ```text
 Cloud & AI Security Lab
+│
 ├── Projects
-│   ├── Project 01. Cloud Security Baseline
-│   ├── Project 02. Secure Landing Zone
-│   ├── Project 03. Kubernetes Security Platform
-│   ├── Project 04. Cloud Security Assessment
-│   ├── Project 05. AI Runtime Security
-│   └── Project 06. Multi-Cloud IAM Governance
+│   End-to-end security implementations
 │
 ├── Research
-│   ├── Research 001. OWASP LLM Top 10
-│   ├── Research 002. MITRE ATT&CK Cloud
-│   └── Research 003. Secure RAG
+│   Technical research and references
 │
-├── Notes
-│   ├── Cloud
-│   ├── Kubernetes
-│   ├── Terraform
-│   └── AI Security
+├── Tech Notes
+│   Practical notes, troubleshooting, and implementation details
 │
-└── Playbooks
-    ├── AWS IAM Review Checklist
-    ├── Azure Logging Checklist
-    └── AI Security Review Checklist
+├── Playbooks
+│   Security checklists and review guides
+│
+└── Assets
+    Images, diagrams, and supporting files
+```
+
+---
+
+## Philosophy
+
+Every project follows the same engineering workflow.
+
+**Design**
+
+Understand the problem and define security objectives.
+
+**Build**
+
+Implement practical security controls.
+
+**Validate**
+
+Verify configurations and analyze results.
+
+**Document**
+
+Record implementation details, findings, and lessons learned.
+
+---
+
+## Note
+
+This repository does not include sensitive company, customer, or internal environment information.
+
+Work-related experiences are rewritten as generalized and reproducible technical projects whenever possible.
+
+---
+
+Built with curiosity and consistency.
